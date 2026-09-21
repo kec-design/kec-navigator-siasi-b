@@ -1,0 +1,11 @@
+{
+  "description": "Provides an interactive, visually faithful web interface with precise layout, colors, fonts, and gradients for seamless user experience and search functionality.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  },
+  "title": "KEC Navigator | Type 2-2"
+}
