@@ -158,9 +158,17 @@
     linear-gradient(135deg, rgba(120, 80, 255, .8), rgba(44, 102, 255, .8) 55%, rgba(60, 208, 255, .8)) border-box;
 }
 .composer-glow { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
-.composer textarea, .composer textarea:focus, .composer textarea:focus-visible {
+/* Sizing stays on this single-specificity selector so per-variant overrides
+   (.home-composer) keep winning once the textarea is focused. */
+.composer textarea {
   resize: none; display: block; width: 100%; outline: none; box-shadow: none;
   background: transparent; line-height: 1.6; font-size: 14px; min-height: 52px;
+}
+/* Focus must only suppress the UA outline — the gradient border on
+   .composer:focus-within is the focus cue. Redeclaring size here would outrank
+   .home-composer textarea and shrink the box on click. */
+.composer textarea:focus, .composer textarea:focus-visible {
+  outline: none; box-shadow: none;
 }
 .home-composer textarea { min-height: 64px; font-size: 15px; }
 .composer textarea::placeholder { color: #9ba7bb; }
